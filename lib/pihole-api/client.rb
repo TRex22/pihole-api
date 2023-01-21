@@ -23,6 +23,12 @@ module PiholeApi
       'v2 2023-01-21'
     end
 
+    def self.hash_password(password)
+      require 'digest'
+      hash1 = Digest::SHA256.hexdigest(password)
+      Digest::SHA256.hexdigest(hash1) # Use as hash password for client
+    end
+
     private
 
     def authorise_and_send(http_method:, command:, payload: {}, params: {})

@@ -16,6 +16,7 @@ This is an unofficial project and still a work in progress (WIP) ... more to com
 - Login and Auth token generation: `admin/scripts/pi-hole/php/api_token.php`
 - Undocumented endpointsw
 - Undocumented filters for getAllQueries
+- Generate WebPassword Hash
 
 ## Installation
 
@@ -41,8 +42,13 @@ Or install it yourself as:
 
   # Some example calls
   client.type
-
 ```
+
+Double hash web password to get the api_token. A helper method exists on the client to do this:
+```ruby
+require 'pihole-api'
+PiholeApi::Client.hash_password(password)
+end
 
 ### Endpoints
 #### Authorised
