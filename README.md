@@ -45,7 +45,23 @@ Or install it yourself as:
 ```
 
 ### Endpoints
+#### Authorised
+- `summary_raw`
+- `summary(params: {})`
+- `over_time_data_10_mins`
+- `top_items(number_of_items=10)`
+- `get_query_sources(number_of_items=10)`
+- `top_clients(number_of_items=10)`
+- `get_forward_destinations`
+- `get_query_types`
+`get_all_queries(params: {}, from_time: nil, until_time: nil, - latest_number_of_items: nil)`
+- `recent_blocked`
+- `enable`
+- `disable`
 
+#### Unauthorised
+- `type`
+- `version`
 
 ### Constants
   Constants
