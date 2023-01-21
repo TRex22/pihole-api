@@ -2,11 +2,20 @@
 A client for the PiholeApi API.
 
 See:
-- https://discourse.pi-hole.net/t/using-the-api/976/6
 - https://discourse.pi-hole.net/t/pi-hole-api/1863
 - https://www.reddit.com/r/pihole/comments/br5tla/how_to_get_info_from_the_new_restful_api/
+- https://pi-hole.net/blog/2022/11/17/upcoming-changes-authentication-for-more-api-endpoints-required/
+- https://pi-hole.net/blog/2022/12/21/pi-hole-ftl-v5-20-and-web-v5-18-released/
+- https://github.com/pi-hole/AdminLTE/issues/2470
+- https://github.com/pi-hole/AdminLTE/issues/2326
+- https://discourse.pi-hole.net/t/using-the-api/976/6
 
 This is an unofficial project and still a work in progress (WIP) ... more to come soon.
+
+## TODO
+- Login and Auth token generation: `admin/scripts/pi-hole/php/api_token.php`
+- Undocumented endpointsw
+- Undocumented filters for getAllQueries
 
 ## Installation
 
@@ -27,8 +36,8 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  require 'PiholeApi'
-  client = PiholeApi::Client.new(base_path: 'http://localhost:80', password: '')
+  require 'pihole-api'
+  client = PiholeApi::Client.new(base_path: 'http://localhost:80/', api_token: '', port: 80)
 
   # Some example calls
   client.type

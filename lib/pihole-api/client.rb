@@ -4,11 +4,12 @@ module PiholeApi
 
     # Endpoints
     include ::PiholeApi::UnauthorisedEndpoints
+    include ::PiholeApi::AuthorisedEndpoints
 
-    attr_reader :password, :base_path, :port
+    attr_reader :api_token, :base_path, :port
 
-    def initialize(base_path:, password:, port: 80)
-      @password = password
+    def initialize(base_path:, api_token:, port: 80)
+      @api_token = api_token
       @base_path = base_path
       @port = port
     end
@@ -39,14 +40,14 @@ module PiholeApi
           'Access-Token': @access_token,
           'Content-Type': 'application/json',
           "Accept": 'application/json',
-          "X-Pi-hole-Authenticate": password
+          "X-Pi-hole-Authenticate": api_token
         },
         port: port,
         format: :json
       )
 
       end_time = micro_second_time_now
-      construct_response_object(response, path, start_time, end_time)
+      construct_response_object(response, command, start_time, end_time)
     end
 
     def construct_response_object(response, path, start_time, end_time)
@@ -63,8 +64,7 @@ module PiholeApi
       {
         'start_time' => start_time,
         'end_time' => end_time,
-        'total_time' => total_time,
-        'cursor' => response.dig('cursor')
+        'total_time' => total_time
       }
     end
 
@@ -77,10 +77,16 @@ module PiholeApi
     end
 
     def parse_body(response, path)
-      parsed_response = JSON.parse(response.body) # Purposely not using HTTParty
-      parsed_response[path.to_s] || parsed_response
-    rescue JSON::ParserError => _e
-      response.body
+      return [] if response.body == "[]"
+      parse_json(response) # Purposely not using HTTParty
+    end
+
+    def parse_json(response)
+      begin
+        JSON.parse(response.body)
+      rescue => _e
+        response.body
+      end
     end
 
     def micro_second_time_now
@@ -88,7 +94,7 @@ module PiholeApi
     end
 
     def construct_base_path(command, params)
-      constructed_path = "#{base_path}/#{API_PATH}?#{command}"
+      constructed_path = "#{base_path}/#{API_PATH}?#{command}&auth=#{api_token}"
 
       if params == {}
         constructed_path
