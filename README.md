@@ -60,7 +60,7 @@ end
 - `top_clients(number_of_items=10)`
 - `get_forward_destinations`
 - `get_query_types`
-`get_all_queries(params: {}, from_time: nil, until_time: nil, latest_number_of_items: nil)`
+- `get_all_queries(params: {}, from_time: nil, until_time: nil, latest_number_of_items: nil)`
 - `recent_blocked`
 - `enable`
 - `disable`
