@@ -14,9 +14,10 @@ This is an unofficial project and still a work in progress (WIP) ... more to com
 
 ## TODO
 - Login and Auth token generation: `admin/scripts/pi-hole/php/api_token.php`
-- Undocumented endpointsw
+- Undocumented endpoints
 - Undocumented filters for getAllQueries
 - Generate WebPassword Hash
+- getAllQueries allow client input
 
 ## Installation
 
@@ -38,7 +39,7 @@ Or install it yourself as:
 
 ```ruby
   require 'pihole-api'
-  client = PiholeApi::Client.new(base_path: 'http://localhost:80/', api_token: '', port: 80)
+  client = PiholeApi::Client.new(base_path: 'http://localhost:80/', api_token: api_token, port: 80)
 
   # Some example calls
   client.type
@@ -47,8 +48,9 @@ Or install it yourself as:
 Double hash web password to get the api_token. A helper method exists on the client to do this:
 ```ruby
 require 'pihole-api'
-PiholeApi::Client.hash_password(password)
+api_token = PiholeApi::Client.hash_password(password)
 end
+```
 
 ### Endpoints
 #### Authorised
