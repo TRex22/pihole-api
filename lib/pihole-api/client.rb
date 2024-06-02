@@ -5,11 +5,14 @@ module PiholeApi
     # Endpoints
     include ::PiholeApi::UnauthorisedEndpoints
     include ::PiholeApi::AuthorisedEndpoints
+    include ::PiholeApi::AuthorisedFormEndpoints
 
-    attr_reader :api_token, :base_path, :port
+    attr_reader :password, :api_token, :form_token, :cookie, :base_path, :port
 
-    def initialize(base_path:, api_token:, port: 80)
-      @api_token = api_token
+    def initialize(base_path:, password:, port: 80)
+      @password = password
+      @api_token = PiholeApi::Client.hash_password(password)
+
       @base_path = base_path
       @port = port
     end
@@ -25,6 +28,7 @@ module PiholeApi
 
     def self.hash_password(password)
       require 'digest'
+
       hash1 = Digest::SHA256.hexdigest(password)
       Digest::SHA256.hexdigest(hash1) # Use as hash password for client
     end

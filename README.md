@@ -45,12 +45,15 @@ Or install it yourself as:
   client.type
 ```
 
-Double hash web password to get the api_token. A helper method exists on the client to do this:
+Double hash web password to get the api_token.
+A helper method exists on the client to do this:
 ```ruby
 require 'pihole-api'
 api_token = PiholeApi::Client.hash_password(password)
 end
 ```
+
+However the client now generates the API token automatically from the given password
 
 ### Endpoints
 #### Authorised
@@ -66,6 +69,9 @@ end
 - `recent_blocked`
 - `enable`
 - `disable`
+#### Authorised Non API
+- auth_form_token
+- `teleport(whitelist: true, regex_whitelist: true, blacklist: true, regexlist: true, adlist: true, client: true, group: true, auditlog: true, staticdhcpleases: true, localdnsrecords: true, localcnamerecords: true, flushtables: true)`
 
 #### Unauthorised
 - `type`
