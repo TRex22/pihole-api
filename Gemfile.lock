@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    pihole-api (0.0.5)
+    pihole-api (0.0.6)
       active_attr (~> 0.16.0)
       httparty (~> 0.22.0)
-      nokogiri (~> 1.16.5)
+      nokogiri (~> 1.16.7)
 
 GEM
   remote: https://rubygems.org/
@@ -41,8 +41,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -57,7 +57,7 @@ GEM
     csv (3.3.0)
     drb (2.2.1)
     erubi (1.12.0)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     httparty (0.22.0)
       csv
       mini_mime (>= 1.0.0)
@@ -69,35 +69,35 @@ GEM
       nokogiri (>= 1.12.0)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    minitest (5.21.2)
+    minitest (5.25.1)
     minitest-focus (1.4.0)
       minitest (>= 4, < 6)
-    minitest-reporters (1.6.1)
+    minitest-reporters (1.7.1)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    mocha (2.1.0)
+    mocha (2.4.5)
       ruby2_keywords (>= 0.0.5)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     mutex_m (0.2.0)
-    nokogiri (1.16.5-aarch64-linux)
+    nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.16.5-arm-linux)
+    nokogiri (1.16.7-arm-linux)
       racc (~> 1.4)
-    nokogiri (1.16.5-arm64-darwin)
+    nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86-linux)
+    nokogiri (1.16.7-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-darwin)
+    nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-linux)
+    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (5.0.5)
+    public_suffix (6.0.1)
     racc (1.8.0)
     rack (3.0.11)
     rack-session (2.0.0)
@@ -111,16 +111,16 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rake (13.1.0)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rake (13.2.1)
+    rexml (3.3.5)
+      strscan
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     strscan (3.1.0)
-    timecop (0.9.8)
+    timecop (0.9.10)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    webmock (3.19.1)
+    webmock (3.23.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -134,15 +134,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  minitest (~> 5.21.2)
+  minitest (~> 5.25.1)
   minitest-focus (~> 1.4.0)
-  minitest-reporters (~> 1.6.1)
-  mocha (~> 2.1.0)
+  minitest-reporters (~> 1.7.1)
+  mocha (~> 2.4.5)
   pihole-api!
   pry (~> 0.14.2)
-  rake (~> 13.1.0)
-  timecop (~> 0.9.8)
-  webmock (~> 3.19.1)
+  rake (~> 13.2.1)
+  timecop (~> 0.9.10)
+  webmock (~> 3.23.1)
 
 BUNDLED WITH
-   2.5.9
+   2.5.17
