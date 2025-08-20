@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    pihole-api (0.0.7)
-      active_attr (~> 0.17.0)
-      httparty (~> 0.22.0)
-      nokogiri (~> 1.16.7)
+    pihole-api (0.0.8)
+      active_attr (>= 0.17.0)
+      httparty (>= 0.22.0)
+      nokogiri (>= 1.16.7)
 
 GEM
   remote: https://rubygems.org/
@@ -69,6 +69,7 @@ GEM
       nokogiri (>= 1.12.0)
     method_source (1.1.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.25.1)
     minitest-focus (1.4.0)
       minitest (>= 4, < 6)
@@ -82,6 +83,9 @@ GEM
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     mutex_m (0.2.0)
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-arm-linux)
@@ -145,4 +149,4 @@ DEPENDENCIES
   webmock (~> 3.23.1)
 
 BUNDLED WITH
-   2.5.17
+   2.7.1
